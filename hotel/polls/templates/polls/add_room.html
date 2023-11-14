@@ -1,0 +1,43 @@
+<!-- polls/add_room.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Room</title>
+</head>
+<body>
+    <h1>Add Room</h1>
+    <form method="post" action="{% url 'polls:add_room' %}">
+        {% csrf_token %}
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+        
+        <label for="surename">Surname:</label>
+        <input type="text" name="surename" required><br>
+        
+        <label for="number">Number:</label>
+        <input type="text" name="number" required><br>
+        
+        <label for="check_in">Check-In:</label>
+        <input type="datetime-local" name="check_in" required><br>
+        
+        <label for="check_out">Check-Out:</label>
+        <input type="datetime-local" name="check_out" required><br>
+        
+        <label for="room_type">Room Type:</label>
+        <select name="room_type">
+            {% for room in room %}
+                <option value="{{ room.room_type }}">{{ room.room_type }}</option>
+            {% endfor %}
+        </select><br>
+        
+        <label for="hotels">Hotel:</label>
+        <select name="hotels">
+            {% for hotel in hotel %}
+                <option value="{{ hotel.hotels }}">{{ hotel.hotels }}</option>
+            {% endfor %}
+        </select><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

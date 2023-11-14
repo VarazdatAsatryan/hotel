@@ -1,0 +1,32 @@
+<!-- polls/registration_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration List</title>
+</head>
+<body>
+    <h1>Registration List</h1>
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Number</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Room Type</th>
+            <th>Hotel</th>
+        </tr>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking.name }}</td>
+            <td>{{ booking.surename }}</td>
+            <td>{{ booking.number }}</td>
+            <td>{{ booking.check_in }}</td>
+            <td>{{ booking.check_out }}</td>
+            <td>{{ booking.room_type }}</td>
+            <td>{{ booking.hotels }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
